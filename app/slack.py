@@ -17,6 +17,7 @@ from slack_sdk.errors import SlackApiError
 
 codewarsIconUrl = "https://www.codewars.com/assets/logos/logo-square-paper-bg-c3d2b1eb4fb35d75b0c0c0e3b74616fab527afdce9d1d3184624cf0b4e950357.jpg"
 slack_token = os.environ["SLACK_BOT_TOKEN"]
+slack_channel = os.environ["SLACK_BOT_CHANNEL"]
 client = WebClient(token=slack_token)
 
 
@@ -25,7 +26,7 @@ def post_to_slack(username, challenge_name, url):
 
     try:
         client.chat_postMessage(
-            channel="CEJ7Q970X",
+            channel=slack_channel,
             text=msg,
             icon_url=codewarsIconUrl,
             username="Codewars"
